@@ -24,45 +24,13 @@ The environment consisted of two remote site subnets connected through a **site-
 
 ---
 
-## 📐 Network Architecture
+## 🌐 Network Architecture
 
-The assessment environment simulated a two-site enterprise network connected through a site-to-site VPN.
+The assessment environment simulated a two-site enterprise network connected through a site-to-site IPsec VPN. The architecture included an Active Directory environment in Swansea, a Linux-based server/gateway in London, domain-member clients, and a Kali Linux assessment environment.
 
-```text
-                         SITE-TO-SITE VPN
-                 ┌──────────────────────────┐
-                 │                          │
-                 ▼                          ▼
+![Enterprise Network Architecture](architecture/network-diagram.png)
 
-      SWANSEA SUBNET                       LONDON SUBNET
-      192.168.1.0/24                       192.168.2.0/24
-
- ┌───────────────────────┐            ┌───────────────────────┐
- │ Swansea Domain        │            │ London Server /       │
- │ Controller (S-DC)    │            │ Gateway (L-CD)        │
- │ Windows Server 2022  │            │ Debian Linux          │
- │ 192.168.1.1          │            │ 192.168.2.1           │
- └───────────┬───────────┘            └───────────┬───────────┘
-             │                                    │
- ┌───────────▼───────────┐            ┌───────────▼───────────┐
- │ Swansea Client        │            │ London Client          │
- │ Windows 10            │            │ Debian Linux           │
- │ 192.168.1.10          │            │ 192.168.2.10           │
- └───────────────────────┘            └─────────────────────────┘
-             ▲
-             │
-      ┌──────┴──────┐
-      │ Kali Linux  │
-      │ Assessment  │
-      │ Host        │
-      └─────────────┘
-```
-
-The assessment host was used to perform reconnaissance, vulnerability assessment and controlled security validation across the simulated environment.
-
-> **Security Note:** All testing was performed within an isolated and authorised laboratory environment created for educational purposes.
-
----
+**Figure 1 — Simulated two-site enterprise network architecture.**
 
 ## 🛠️ Tools & Technologies
 
